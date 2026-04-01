@@ -577,6 +577,139 @@ const sections = [
     `
   },
   {
+    id: 'decisions',
+    tab: 'Decisions',
+    html: `
+      <h2>Making the call</h2>
+      <p class="section-subtitle">Your Pending Decision view and how to think about qualify vs. disqualify.</p>
+
+      <h3>Your view: Pending Decision</h3>
+      <div class="card" style="margin-bottom:6px;">
+        <div class="card-body">This is where you spend your decision-making energy. Every lead here is Connected — two-way contact happened. Each one needs a verdict: qualify into a deal or disqualify with a reason.</div>
+      </div>
+      <div class="columns-list" style="margin-bottom:6px;">
+        <div class="col-name">Lead name</div><div class="col-why">Who you're deciding on</div>
+        <div class="col-name">Company</div><div class="col-why">Context</div>
+        <div class="col-name">Channel source</div><div class="col-why">How they arrived</div>
+        <div class="col-name">Last activity</div><div class="col-why">Are they still engaged or gone quiet?</div>
+        <div class="col-name">Last meeting</div><div class="col-why">When was the discovery call?</div>
+        <div class="col-name">Next meeting</div><div class="col-why">Blank = no follow-up scheduled = urgent</div>
+        <div class="col-name">Intro disposition</div><div class="col-why">What was the call outcome?</div>
+      </div>
+      <div class="view-filters">Filter: lead stage = Connected · lead owner = Me</div>
+      <div class="view-sort" style="margin-bottom:2rem;">↑ Sort: next meeting date ascending, blanks first</div>
+
+      <h3>How to read this view</h3>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:2rem;">
+        <div class="card" style="border-color: var(--red-border);">
+          <div style="font-size:12px; font-weight:600; color:var(--red); margin-bottom:6px;">Needs immediate attention</div>
+          <div class="card-body">Next meeting is blank and last activity is 7+ days ago. This lead is drifting — either re-engage today or disqualify.</div>
+        </div>
+        <div class="card" style="border-color: var(--amber-border);">
+          <div style="font-size:12px; font-weight:600; color:var(--amber); margin-bottom:6px;">Decision pending</div>
+          <div class="card-body">Intro disposition is Converted but lead is still in Connected. You already said yes on the call — now move it to Qualified and create the deal.</div>
+        </div>
+        <div class="card" style="border-color: var(--green-border);">
+          <div style="font-size:12px; font-weight:600; color:var(--green); margin-bottom:6px;">In progress</div>
+          <div class="card-body">Next meeting is booked. No action needed right now — prep for the call and make your decision after.</div>
+        </div>
+        <div class="card" style="border-color: var(--border);">
+          <div style="font-size:12px; font-weight:600; color:var(--text-secondary); margin-bottom:6px;">Referral in flight</div>
+          <div class="card-body">Intro disposition is Referral Needed. You're working on connecting with the right contact. Keep it here until the referral lands or stalls.</div>
+        </div>
+      </div>
+
+      <hr class="section-divider">
+
+      <h3>Ready to qualify?</h3>
+      <div class="card" style="border-color: var(--green-border);">
+        <div class="card-body" style="margin-bottom:12px;">Before you move a lead to Qualified, you should be able to answer <strong>yes</strong> to all of these:</div>
+        <div style="display:grid; gap:8px;">
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:14px;">
+            <span style="color:var(--green); font-size:16px; line-height:1.4;">✓</span>
+            <span style="color:var(--text-secondary);"><strong style="color:var(--text);">Real problem.</strong> They articulated a specific pain — not "we're interested" but a concrete challenge they need solved.</span>
+          </div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:14px;">
+            <span style="color:var(--green); font-size:16px; line-height:1.4;">✓</span>
+            <span style="color:var(--text-secondary);"><strong style="color:var(--text);">Real buyer.</strong> You know the name of the person with authority and budget. Not "someone on their team" — an actual name.</span>
+          </div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:14px;">
+            <span style="color:var(--green); font-size:16px; line-height:1.4;">✓</span>
+            <span style="color:var(--text-secondary);"><strong style="color:var(--text);">Real urgency.</strong> There's a reason to act now — a legislative cycle, a contract expiring, a mandate, a budget window. Not "eventually."</span>
+          </div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:14px;">
+            <span style="color:var(--green); font-size:16px; line-height:1.4;">✓</span>
+            <span style="color:var(--text-secondary);"><strong style="color:var(--text);">Can fill in deal fields.</strong> You can enter deal amount, economic buyer, and close date without guessing. If you're making numbers up, you need another conversation.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-green" style="margin-bottom:2rem;">
+        <div class="callout-title">If any answer is no</div>
+        Don't qualify yet. Stay in Connected, book another meeting, and get the missing piece. Qualifying too early is how pipeline gets inflated — that's the whole problem we're fixing.
+      </div>
+
+      <h3>Time to disqualify?</h3>
+      <div class="card" style="border-color: var(--red-border);">
+        <div class="card-body" style="margin-bottom:12px;">If you see any of these patterns, it's time to DQ. A clean disqualify is not a failure — it's how you keep your workspace honest.</div>
+        <div style="display:grid; gap:8px;">
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:14px;">
+            <span style="color:var(--red); font-size:16px; line-height:1.4;">✗</span>
+            <span style="color:var(--text-secondary);"><strong style="color:var(--text);">No response.</strong> 3+ outreach attempts over 2+ weeks with zero reply. They're not interested. DQ reason: No Response.</span>
+          </div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:14px;">
+            <span style="color:var(--red); font-size:16px; line-height:1.4;">✗</span>
+            <span style="color:var(--text-secondary);"><strong style="color:var(--text);">Went dark after connecting.</strong> Had a conversation but they've gone silent for 2+ weeks, no next meeting, no response to follow-ups. DQ reason: Went Dark.</span>
+          </div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:14px;">
+            <span style="color:var(--red); font-size:16px; line-height:1.4;">✗</span>
+            <span style="color:var(--text-secondary);"><strong style="color:var(--text);">Not ICP.</strong> Wrong org type, no government affairs function, too small, wrong segment. DQ reason: Not ICP.</span>
+          </div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:14px;">
+            <span style="color:var(--red); font-size:16px; line-height:1.4;">✗</span>
+            <span style="color:var(--text-secondary);"><strong style="color:var(--text);">No budget or authority.</strong> The person you talked to can't buy and can't connect you to someone who can. DQ reason: No Authority.</span>
+          </div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:14px;">
+            <span style="color:var(--red); font-size:16px; line-height:1.4;">✗</span>
+            <span style="color:var(--text-secondary);"><strong style="color:var(--text);">Timing is 12+ months out.</strong> They like it but there's no reason to act for over a year. DQ reason: Timing. A new lead will create if they come back.</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="section-divider">
+
+      <h3>The gray zone</h3>
+      <p style="font-size:14px; color:var(--text-secondary); margin-bottom:12px;">Not everything is a clear yes or no. Here's how to handle the in-between.</p>
+      <div class="card">
+        <div style="padding:10px 0; border-bottom:1px solid var(--border);">
+          <div style="font-size:13px; font-weight:500; margin-bottom:4px;">"They're interested but can't commit to a timeline."</div>
+          <div style="font-size:13px; color:var(--text-secondary);">→ Stay in Connected. Book a follow-up with a specific date. If they won't commit to a follow-up meeting, that's a signal — lean toward DQ.</div>
+        </div>
+        <div style="padding:10px 0; border-bottom:1px solid var(--border);">
+          <div style="font-size:13px; font-weight:500; margin-bottom:4px;">"Good call but they need to loop in their boss."</div>
+          <div style="font-size:13px; color:var(--text-secondary);">→ Stay in Connected. Set intro disposition to Referral Needed. Get the intro to the boss. Qualify based on that conversation, not this one.</div>
+        </div>
+        <div style="padding:10px 0; border-bottom:1px solid var(--border);">
+          <div style="font-size:13px; font-weight:500; margin-bottom:4px;">"They said maybe next quarter."</div>
+          <div style="font-size:13px; color:var(--text-secondary);">→ DQ with reason: Timing. Don't let it sit in Connected for months. If they come back next quarter, a new lead auto-creates and you start fresh.</div>
+        </div>
+        <div style="padding:10px 0; border-bottom:1px solid var(--border);">
+          <div style="font-size:13px; font-weight:500; margin-bottom:4px;">"Great first call, but I need a second meeting to confirm qualification."</div>
+          <div style="font-size:13px; color:var(--text-secondary);">→ Stay in Connected. This is exactly what the stage is for. Book the second call, then decide.</div>
+        </div>
+        <div style="padding:10px 0;">
+          <div style="font-size:13px; font-weight:500; margin-bottom:4px;">"They're using a competitor and seem happy with it."</div>
+          <div style="font-size:13px; color:var(--text-secondary);">→ If there's no pain or trigger for change, DQ with reason: No Need. If they expressed frustration, stay in Connected and dig deeper.</div>
+        </div>
+      </div>
+
+      <div class="callout callout-amber" style="margin-top:1.25rem;">
+        <div class="callout-title">The rule of thumb</div>
+        If a lead has been in Connected for more than 2 weeks with no next meeting and no recent activity, it needs a decision today. Either re-engage with a specific ask or disqualify. The worst outcome is a lead that sits here for months because you're "not sure yet."
+      </div>
+    `
+  },
+  {
     id: 'scenarios',
     tab: 'Scenarios',
     html: `
