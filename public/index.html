@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AE Leads Workspace — Quick Reference</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF7;
+  --bg-card: #FFFFFF;
+  --bg-subtle: #F3F3EE;
+  --bg-dark: #1C1C1A;
+  --text: #1C1C1A;
+  --text-secondary: #6E6E68;
+  --text-muted: #9E9E96;
+  --border: #E4E4DE;
+  --border-strong: #CCCCC4;
+  --accent: #2563EB;
+  --accent-light: #EFF6FF;
+  --green: #16A34A;
+  --green-bg: #F0FDF4;
+  --green-border: #BBF7D0;
+  --amber: #D97706;
+  --amber-bg: #FFFBEB;
+  --amber-border: #FDE68A;
+  --red: #DC2626;
+  --red-bg: #FEF2F2;
+  --red-border: #FECACA;
+  --purple: #7C3AED;
+  --purple-bg: #F5F3FF;
+  --purple-border: #DDD6FE;
+  --font: 'IBM Plex Sans', -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+  --radius: 10px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141413;
+    --bg-card: #1E1E1C;
+    --bg-subtle: #262624;
+    --bg-dark: #0A0A09;
+    --text: #EDEDEA;
+    --text-secondary: #A1A19A;
+    --text-muted: #6E6E68;
+    --border: #2E2E2C;
+    --border-strong: #3E3E3A;
+    --accent: #60A5FA;
+    --accent-light: #1E293B;
+    --green: #4ADE80;
+    --green-bg: #14291D;
+    --green-border: #1A3D27;
+    --amber: #FBBF24;
+    --amber-bg: #291F0A;
+    --amber-border: #3D2E10;
+    --red: #F87171;
+    --red-bg: #2A1414;
+    --red-border: #3D1A1A;
+    --purple: #A78BFA;
+    --purple-bg: #1E1533;
+    --purple-border: #2E2248;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+    --shadow: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+
+/* Header */
+.header { background: var(--bg-dark); color: #fff; padding: 3rem 2rem 2.5rem; }
+.header-inner { max-width: 800px; margin: 0 auto; }
+.header-badge { display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 12px; padding: 4px 10px; border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; }
+.header h1 { font-size: 28px; font-weight: 600; letter-spacing: -0.5px; margin-bottom: 8px; }
+.header p { font-size: 15px; color: rgba(255,255,255,0.6); max-width: 540px; }
+
+/* Nav */
+.nav-bar { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--border); }
+.nav-inner { max-width: 800px; margin: 0 auto; display: flex; gap: 0; overflow-x: auto; padding: 0 2rem; }
+.nav-tab { font-size: 13px; font-weight: 500; padding: 14px 16px; color: var(--text-muted); cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap; transition: all 0.15s; }
+.nav-tab:hover { color: var(--text-secondary); }
+.nav-tab.active { color: var(--text); border-bottom-color: var(--accent); }
+
+/* Content */
+.content { max-width: 800px; margin: 0 auto; padding: 2rem; }
+.section { display: none; }
+.section.active { display: block; }
+
+/* Typography */
+h2 { font-size: 20px; font-weight: 600; letter-spacing: -0.3px; margin: 0 0 6px; }
+h3 { font-size: 15px; font-weight: 600; margin: 0 0 8px; }
+.section-subtitle { font-size: 14px; color: var(--text-secondary); margin: 0 0 2rem; }
+.section-divider { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+/* Cards */
+.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; margin: 0 0 1rem; box-shadow: var(--shadow-sm); }
+.card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.card-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+.card-icon-blue { background: var(--accent-light); color: var(--accent); }
+.card-icon-green { background: var(--green-bg); color: var(--green); }
+.card-icon-amber { background: var(--amber-bg); color: var(--amber); }
+.card-icon-red { background: var(--red-bg); color: var(--red); }
+.card-icon-purple { background: var(--purple-bg); color: var(--purple); }
+.card-title { font-size: 14px; font-weight: 600; }
+.card-body { font-size: 14px; color: var(--text-secondary); }
+
+/* Flow diagram */
+.flow { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 1.5rem 0; padding: 1.25rem; background: var(--bg-subtle); border-radius: var(--radius); }
+.flow-stage { font-family: var(--mono); font-size: 12px; font-weight: 500; padding: 6px 12px; border-radius: 6px; background: var(--bg-card); border: 1px solid var(--border); white-space: nowrap; }
+.flow-stage-active { background: var(--accent-light); border-color: var(--accent); color: var(--accent); }
+.flow-stage-closed-won { background: var(--green-bg); border-color: var(--green-border); color: var(--green); }
+.flow-stage-closed-lost { background: var(--red-bg); border-color: var(--red-border); color: var(--red); }
+.flow-arrow { color: var(--text-muted); font-size: 14px; flex-shrink: 0; }
+
+/* Views table */
+.view-block { margin-bottom: 2rem; }
+.view-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.view-number { width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.view-name { font-size: 15px; font-weight: 600; }
+.view-goal { font-size: 13px; color: var(--text-secondary); margin-left: auto; font-style: italic; }
+.columns-list { display: grid; grid-template-columns: 140px 1fr; gap: 0; font-size: 13px; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--bg-card); }
+.col-name { padding: 8px 12px; font-weight: 500; font-family: var(--mono); font-size: 12px; background: var(--bg-subtle); border-bottom: 1px solid var(--border); }
+.col-why { padding: 8px 12px; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
+.columns-list .col-name:last-of-type,
+.columns-list .col-why:last-of-type { border-bottom: none; }
+.view-filters { margin-top: 8px; font-size: 12px; font-family: var(--mono); color: var(--text-muted); padding: 8px 12px; background: var(--bg-subtle); border-radius: 6px; }
+.view-sort { font-size: 12px; color: var(--text-muted); margin-top: 6px; padding-left: 2px; }
+
+/* Scenarios */
+.scenario { border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 1rem; overflow: hidden; background: var(--bg-card); box-shadow: var(--shadow-sm); }
+.scenario-header { display: flex; align-items: center; gap: 10px; padding: 14px 16px; cursor: pointer; user-select: none; }
+.scenario-header:hover { background: var(--bg-subtle); }
+.scenario-tag { font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
+.tag-bdr { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+.tag-inbound { background: var(--accent-light); color: var(--accent); border: 1px solid #BFDBFE; }
+.tag-stale { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+.tag-dq { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+.tag-deal { background: var(--purple-bg); color: var(--purple); border: 1px solid var(--purple-border); }
+.scenario-title { font-size: 14px; font-weight: 500; flex: 1; }
+.scenario-chevron { color: var(--text-muted); transition: transform 0.2s; font-size: 18px; }
+.scenario.open .scenario-chevron { transform: rotate(90deg); }
+.scenario-body { display: none; padding: 0 16px 16px; }
+.scenario.open .scenario-body { display: block; }
+.scenario-step { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.scenario-step:last-child { border-bottom: none; }
+.step-num { width: 22px; height: 22px; border-radius: 50%; background: var(--bg-subtle); border: 1px solid var(--border); font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--text-secondary); margin-top: 1px; }
+.step-text { color: var(--text-secondary); line-height: 1.55; }
+.step-text strong { color: var(--text); font-weight: 500; }
+
+/* Key points */
+.key-point { display: flex; gap: 10px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.key-point:last-child { border-bottom: none; }
+.kp-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+.kp-text { font-size: 14px; color: var(--text-secondary); }
+.kp-text strong { color: var(--text); font-weight: 500; }
+
+/* Deal fields */
+.field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 1rem 0; }
+.field-item { background: var(--bg-subtle); border-radius: 8px; padding: 12px 14px; }
+.field-label { font-size: 12px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+.field-value { font-size: 14px; font-weight: 500; }
+.field-note { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+/* Callout */
+.callout { padding: 1rem 1.25rem; border-radius: var(--radius); margin: 1.25rem 0; font-size: 14px; }
+.callout-blue { background: var(--accent-light); border: 1px solid #BFDBFE; color: var(--accent); }
+.callout-green { background: var(--green-bg); border: 1px solid var(--green-border); color: var(--green); }
+.callout-amber { background: var(--amber-bg); border: 1px solid var(--amber-border); color: var(--amber); }
+.callout-title { font-weight: 600; margin-bottom: 4px; }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .header { padding: 2rem 1.25rem 1.75rem; }
+  .header h1 { font-size: 22px; }
+  .nav-inner { padding: 0 1.25rem; }
+  .content { padding: 1.5rem 1.25rem; }
+  .field-grid { grid-template-columns: 1fr; }
+  .view-goal { display: none; }
+  .columns-list { grid-template-columns: 120px 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-badge">AE Reference Guide</div>
+    <h1>Your Leads Workspace</h1>
+    <p>How leads work, where to find them, what to do with them. Everything lives here until it becomes a deal.</p>
+  </div>
+</div>
+
+<div class="nav-bar">
+  <div class="nav-inner" id="tabs"></div>
+</div>
+
+<div class="content" id="content"></div>
+
+<script>
+const sections = [
+  {
+    id: 'big-picture',
+    tab: 'Big Picture',
+    html: `
+      <h2>How this works</h2>
+      <p class="section-subtitle">The 60-second version of your new pre-deal workflow.</p>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon card-icon-blue">⚡</div>
+          <div class="card-title">One sentence</div>
+        </div>
+        <div class="card-body">Every prospect that lands on your plate gets a <strong>Lead record</strong>. You work it until you either <strong>qualify it into a deal</strong> or <strong>disqualify it</strong>. That's it.</div>
+      </div>
+
+      <div class="flow">
+        <span class="flow-stage flow-stage-active">New</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-stage">Attempting</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-stage">Connected</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-stage flow-stage-closed-won">Qualified</span>
+        <span class="flow-arrow">/</span>
+        <span class="flow-stage flow-stage-closed-lost">Disqualified</span>
+      </div>
+
+      <h3>Two ways leads arrive</h3>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px;">
+        <div class="card" style="border-color: var(--green-border);">
+          <div class="card-header"><div class="card-icon card-icon-green">📞</div><div class="card-title">BDR-sourced</div></div>
+          <div class="card-body">A BDR books a meeting on your calendar. A lead auto-creates and assigns to you. You'll see it near <strong>Connected</strong> because the meeting already exists. Your job: take the call, then qualify or disqualify.</div>
+        </div>
+        <div class="card" style="border-color: #BFDBFE;">
+          <div class="card-header"><div class="card-icon card-icon-blue">📥</div><div class="card-title">Inbound</div></div>
+          <div class="card-body">A prospect fills out a form. A lead auto-creates and assigns to you at <strong>New</strong>. Your job: reach out, get a conversation going, then qualify or disqualify.</div>
+        </div>
+      </div>
+
+      <hr class="section-divider">
+
+      <h3>What's different from before</h3>
+      <div class="card">
+        <div class="key-point"><span class="kp-icon">🚫</span><div class="kp-text"><strong>No more early deals.</strong> You don't create a deal until you've decided this is a real opportunity. That means the deal pipeline only has qualified opportunities in it — no maybes, no "just had a first call."</div></div>
+        <div class="key-point"><span class="kp-icon">📋</span><div class="kp-text"><strong>Leads are your pre-deal workspace.</strong> Everything you used to track informally — who needs a call back, who went dark, who's worth pursuing — now has a home with a clear status.</div></div>
+        <div class="key-point"><span class="kp-icon">⏱️</span><div class="kp-text"><strong>Most stages update automatically.</strong> New → Attempting → Connected all happen based on your activity. You only make two manual decisions: Qualified or Disqualified.</div></div>
+        <div class="key-point"><span class="kp-icon">🎯</span><div class="kp-text"><strong>Your views are your daily to-do list.</strong> Four views, four actions. Open the right view, work top to bottom. No hunting.</div></div>
+      </div>
+
+      <div class="callout callout-green">
+        <div class="callout-title">Why this helps you</div>
+        Your pipeline will only contain deals you believe in. Forecast calls get simpler. Your manager sees what's pre-deal without asking. And nothing falls through the cracks because every lead is tracked and visible.
+      </div>
+    `
+  },
+  {
+    id: 'stages',
+    tab: 'Stages',
+    html: `
+      <h2>Lead stages explained</h2>
+      <p class="section-subtitle">What each stage means and what moves a lead between them.</p>
+
+      <div class="flow">
+        <span class="flow-stage flow-stage-active">New</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-stage">Attempting</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-stage">Connected</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-stage flow-stage-closed-won">Qualified</span>
+        <span class="flow-arrow">/</span>
+        <span class="flow-stage flow-stage-closed-lost">Disqualified</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><div class="card-icon card-icon-blue">1</div><div class="card-title">New</div></div>
+        <div class="card-body">
+          <strong>What it means:</strong> Lead just landed on you. No AE activity yet.<br>
+          <strong>How you get here:</strong> Automatic — every new lead starts here.<br>
+          <strong>What to do:</strong> Reach out (inbound) or prep for the BDR-booked meeting.<br>
+          <strong>What moves you out:</strong> Any outreach — email, call, or meeting logged. Automatic.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><div class="card-icon card-icon-blue">2</div><div class="card-title">Attempting</div></div>
+        <div class="card-body">
+          <strong>What it means:</strong> You've reached out, but the prospect hasn't responded yet.<br>
+          <strong>How you get here:</strong> Automatic — HubSpot moves the lead when you log outreach.<br>
+          <strong>What to do:</strong> Follow up. Check how many attempts you've made and how long it's been.<br>
+          <strong>What moves you out:</strong> Prospect replies, books a meeting, or a meeting is completed. Automatic.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><div class="card-icon card-icon-blue">3</div><div class="card-title">Connected</div></div>
+        <div class="card-body">
+          <strong>What it means:</strong> Two-way contact established. Prospect replied or meeting happened.<br>
+          <strong>How you get here:</strong> Automatic — HubSpot detects the response or completed meeting.<br>
+          <strong>What to do:</strong> Have the discovery conversation. Then make the call: qualify or disqualify.<br>
+          <strong>What moves you out:</strong> <em>Your decision.</em> This is the only stage where you take manual action.
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 4px;">
+        <div class="card" style="border-color: var(--green-border);">
+          <div class="card-header"><div class="card-icon card-icon-green">✓</div><div class="card-title">Qualified</div></div>
+          <div class="card-body">
+            <strong>What it means:</strong> This is a real opportunity. You're ready to create a deal.<br>
+            <strong>How you get here:</strong> You move the lead manually. Intentional decision.<br>
+            <strong>What to do:</strong> Create the deal. The lead's job is done.<br>
+            <strong>Locked:</strong> Once Qualified, only admins can change it back.
+          </div>
+        </div>
+        <div class="card" style="border-color: var(--red-border);">
+          <div class="card-header"><div class="card-icon card-icon-red">✗</div><div class="card-title">Disqualified</div></div>
+          <div class="card-body">
+            <strong>What it means:</strong> Not a fit, went dark, or not a real opportunity right now.<br>
+            <strong>How you get here:</strong> You move the lead manually. Intentional decision.<br>
+            <strong>Required:</strong> You must select a disqualification reason. No blank DQs.<br>
+            <strong>Locked:</strong> Once Disqualified, only admins can change it back.
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-amber">
+        <div class="callout-title">The key insight</div>
+        You only make two manual moves in this entire pipeline: qualify or disqualify. Everything else is automatic. Spend your energy on the decision, not on updating statuses.
+      </div>
+    `
+  },
+  {
+    id: 'views',
+    tab: 'Your Views',
+    html: `
+      <h2>Your four daily views</h2>
+      <p class="section-subtitle">Open these in your Sales Workspace. Work top to bottom. Each view = one action.</p>
+
+      <div class="view-block">
+        <div class="view-header">
+          <div class="view-number">1</div>
+          <div class="view-name">Needs Outreach</div>
+          <div class="view-goal">Action: make first contact</div>
+        </div>
+        <div class="columns-list">
+          <div class="col-name">Lead name</div><div class="col-why">Who you're reaching out to</div>
+          <div class="col-name">Company</div><div class="col-why">Context for the outreach</div>
+          <div class="col-name">Channel source</div><div class="col-why">BDR Outbound vs Inbound — changes your approach</div>
+          <div class="col-name">Channel detail</div><div class="col-why">Which form, which BDR, etc.</div>
+          <div class="col-name">Create date</div><div class="col-why">Your speed-to-lead clock. Oldest first.</div>
+          <div class="col-name">Next meeting</div><div class="col-why">BDR leads often have a meeting already booked — see when</div>
+        </div>
+        <div class="view-filters">Filter: lead stage = New · lead owner = Me</div>
+        <div class="view-sort">↑ Sort: create date ascending (oldest first)</div>
+      </div>
+
+      <div class="view-block">
+        <div class="view-header">
+          <div class="view-number">2</div>
+          <div class="view-name">Awaiting Response</div>
+          <div class="view-goal">Action: follow up</div>
+        </div>
+        <div class="columns-list">
+          <div class="col-name">Lead name</div><div class="col-why">Who you're following up with</div>
+          <div class="col-name">Company</div><div class="col-why">Context</div>
+          <div class="col-name">Channel source</div><div class="col-why">Follow-up tone varies by channel</div>
+          <div class="col-name">Create date</div><div class="col-why">Total age of the lead</div>
+          <div class="col-name">Last activity</div><div class="col-why">When did you last reach out? Sort by this.</div>
+          <div class="col-name">Activity count</div><div class="col-why">How many attempts — tells you when to stop</div>
+          <div class="col-name">Next meeting</div><div class="col-why">Catch meetings booked that HubSpot hasn't auto-advanced yet</div>
+        </div>
+        <div class="view-filters">Filter: lead stage = Attempting · lead owner = Me</div>
+        <div class="view-sort">↑ Sort: last AE activity date ascending (longest silence first)</div>
+      </div>
+
+      <div class="view-block">
+        <div class="view-header">
+          <div class="view-number">3</div>
+          <div class="view-name">Pending Decision</div>
+          <div class="view-goal">Action: qualify or disqualify</div>
+        </div>
+        <div class="columns-list">
+          <div class="col-name">Lead name</div><div class="col-why">Who you're deciding on</div>
+          <div class="col-name">Company</div><div class="col-why">Context</div>
+          <div class="col-name">Channel source</div><div class="col-why">How they arrived</div>
+          <div class="col-name">Last activity</div><div class="col-why">Are they still engaged or gone quiet?</div>
+          <div class="col-name">Last meeting</div><div class="col-why">When was the discovery call?</div>
+          <div class="col-name">Next meeting</div><div class="col-why">Blank = no follow-up scheduled = urgent</div>
+          <div class="col-name">Intro disposition</div><div class="col-why">What was the call outcome?</div>
+        </div>
+        <div class="view-filters">Filter: lead stage = Connected · lead owner = Me</div>
+        <div class="view-sort">↑ Sort: next meeting date ascending, blanks first</div>
+      </div>
+
+      <div class="view-block">
+        <div class="view-header">
+          <div class="view-number">4</div>
+          <div class="view-name">Qualified, No Deal</div>
+          <div class="view-goal">Action: create the deal</div>
+        </div>
+        <div class="columns-list">
+          <div class="col-name">Lead name</div><div class="col-why">Who you qualified</div>
+          <div class="col-name">Company</div><div class="col-why">Context for deal creation</div>
+          <div class="col-name">Channel source</div><div class="col-why">Reporting context for the deal</div>
+          <div class="col-name">Qualified date</div><div class="col-why">How long since you qualified — urgency signal</div>
+          <div class="col-name">Intro disposition</div><div class="col-why">Should say Converted — data quality check</div>
+        </div>
+        <div class="view-filters">Filter: lead stage = Qualified · associated deal = none · lead owner = Me</div>
+        <div class="view-sort">↑ Sort: qualified date ascending (oldest first)</div>
+      </div>
+
+      <div class="callout callout-blue">
+        <div class="callout-title">Daily rhythm</div>
+        Start with View 4 (create any overdue deals). Then View 1 (new leads to contact). Then View 2 (follow-ups). Then View 3 (decisions to make). Top to bottom, every time.
+      </div>
+    `
+  },
+  {
+    id: 'deal',
+    tab: 'Creating Deals',
+    html: `
+      <h2>When you create a deal</h2>
+      <p class="section-subtitle">A deal is created the moment you qualify a lead. Here's what's required.</p>
+
+      <div class="card">
+        <div class="card-header"><div class="card-icon card-icon-green">✓</div><div class="card-title">Qualification = Deal creation</div></div>
+        <div class="card-body">Moving a lead to Qualified means you believe this is a real opportunity. The next step is creating the deal — that's what puts it in the pipeline. Don't let qualified leads sit without a deal.</div>
+      </div>
+
+      <h3>Required fields at deal creation</h3>
+      <div class="field-grid">
+        <div class="field-item">
+          <div class="field-label">Deal Amount</div>
+          <div class="field-value">Non-zero value</div>
+          <div class="field-note">Your best estimate. Can be updated later.</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">Economic Buyer</div>
+          <div class="field-value">Name of the decision-maker</div>
+          <div class="field-note">The person with authority and budget.</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">Problem Statement</div>
+          <div class="field-value">50+ characters</div>
+          <div class="field-note">The specific problem they need solved. Be specific.</div>
+        </div>
+        <div class="field-item">
+          <div class="field-label">Current Tracking Tool</div>
+          <div class="field-value">What they use today</div>
+          <div class="field-note">How they currently manage the problem.</div>
+        </div>
+      </div>
+
+      <div class="callout callout-amber">
+        <div class="callout-title">Why these fields matter</div>
+        These four fields are the evidence that qualification happened. If you can't fill them in, the lead probably isn't qualified yet. They also give your manager instant context on every deal without having to ask you.
+      </div>
+
+      <h3>Where the deal lands</h3>
+      <div class="flow">
+        <span class="flow-stage flow-stage-active">Business Case</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-stage">Pricing & Timing</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-stage">Evaluation</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-stage">Negotiation</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-stage">In Contract</span>
+      </div>
+
+      <div class="card">
+        <div class="card-body">Every new deal enters at <strong>Business Case</strong>. This is where you and the champion quantify the problem and build internal justification. The buyer isn't evaluating the product yet — they're deciding if the problem is worth solving.</div>
+      </div>
+    `
+  },
+  {
+    id: 'scenarios',
+    tab: 'Scenarios',
+    html: `
+      <h2>Common scenarios</h2>
+      <p class="section-subtitle">Click any scenario to see the step-by-step walkthrough.</p>
+
+      <div class="scenario" onclick="toggleScenario(this)">
+        <div class="scenario-header">
+          <span class="scenario-tag tag-bdr">BDR</span>
+          <span class="scenario-title">BDR books an intro meeting on your calendar</span>
+          <span class="scenario-chevron">›</span>
+        </div>
+        <div class="scenario-body">
+          <div class="scenario-step"><div class="step-num">1</div><div class="step-text"><strong>BDR books the meeting</strong> on your calendar through HubSpot. The contact record exists with a company and email.</div></div>
+          <div class="scenario-step"><div class="step-num">2</div><div class="step-text"><strong>Lead auto-creates</strong> and assigns to you. Source = "BDR Outbound." It starts at New but auto-advances because the meeting exists.</div></div>
+          <div class="scenario-step"><div class="step-num">3</div><div class="step-text"><strong>You see it</strong> in your Pending Decision view (or Needs Outreach if the meeting hasn't happened yet). Check the next meeting date column and prep.</div></div>
+          <div class="scenario-step"><div class="step-num">4</div><div class="step-text"><strong>Take the intro call.</strong> Log your intro disposition — Converted, Not Converted, or Referral Needed.</div></div>
+          <div class="scenario-step"><div class="step-num">5</div><div class="step-text"><strong>Make your decision.</strong> Real opportunity? → Move to Qualified, create the deal. Not a fit? → Move to Disqualified with a reason.</div></div>
+        </div>
+      </div>
+
+      <div class="scenario" onclick="toggleScenario(this)">
+        <div class="scenario-header">
+          <span class="scenario-tag tag-inbound">Inbound</span>
+          <span class="scenario-title">Prospect fills out a demo request form</span>
+          <span class="scenario-chevron">›</span>
+        </div>
+        <div class="scenario-body">
+          <div class="scenario-step"><div class="step-num">1</div><div class="step-text"><strong>Form submitted.</strong> Routing workflow assigns the contact to you based on segment and ownership rules.</div></div>
+          <div class="scenario-step"><div class="step-num">2</div><div class="step-text"><strong>Lead auto-creates</strong> at New, assigned to you. Source = "Inbound." No meeting exists yet — it's on you to make contact.</div></div>
+          <div class="scenario-step"><div class="step-num">3</div><div class="step-text"><strong>You see it in Needs Outreach.</strong> Speed matters here — the lead is hot. Reach out same day if possible.</div></div>
+          <div class="scenario-step"><div class="step-num">4</div><div class="step-text"><strong>You send an email or make a call.</strong> Lead auto-moves to Attempting. It now appears in Awaiting Response.</div></div>
+          <div class="scenario-step"><div class="step-num">5</div><div class="step-text"><strong>Prospect replies or books a meeting.</strong> Lead auto-moves to Connected. It now appears in Pending Decision.</div></div>
+          <div class="scenario-step"><div class="step-num">6</div><div class="step-text"><strong>Discovery call happens.</strong> Log your intro disposition. Then qualify or disqualify.</div></div>
+        </div>
+      </div>
+
+      <div class="scenario" onclick="toggleScenario(this)">
+        <div class="scenario-header">
+          <span class="scenario-tag tag-stale">Stale</span>
+          <span class="scenario-title">Lead goes dark after your outreach</span>
+          <span class="scenario-chevron">›</span>
+        </div>
+        <div class="scenario-body">
+          <div class="scenario-step"><div class="step-num">1</div><div class="step-text"><strong>Lead is in Attempting.</strong> You've reached out but haven't heard back. You see it in Awaiting Response.</div></div>
+          <div class="scenario-step"><div class="step-num">2</div><div class="step-text"><strong>Check the activity count and last activity date.</strong> If you've made 3+ attempts over 2+ weeks with no response, it's time to make a call.</div></div>
+          <div class="scenario-step"><div class="step-num">3</div><div class="step-text"><strong>Send a breakup email</strong> if you want one last shot. Give it a few days.</div></div>
+          <div class="scenario-step"><div class="step-num">4</div><div class="step-text"><strong>Still nothing? Move to Disqualified.</strong> Select "No Response" as the reason. This is clean, not a failure — you did the work, they didn't engage.</div></div>
+        </div>
+      </div>
+
+      <div class="scenario" onclick="toggleScenario(this)">
+        <div class="scenario-header">
+          <span class="scenario-tag tag-deal">Qualify</span>
+          <span class="scenario-title">Great intro call — ready to create a deal</span>
+          <span class="scenario-chevron">›</span>
+        </div>
+        <div class="scenario-body">
+          <div class="scenario-step"><div class="step-num">1</div><div class="step-text"><strong>Discovery call went well.</strong> You've identified a real problem, a real buyer, and real urgency. The lead is in Connected.</div></div>
+          <div class="scenario-step"><div class="step-num">2</div><div class="step-text"><strong>Set intro disposition to Converted.</strong> This logs the call outcome.</div></div>
+          <div class="scenario-step"><div class="step-num">3</div><div class="step-text"><strong>Move the lead to Qualified.</strong> This is your intentional "yes, this is real" decision.</div></div>
+          <div class="scenario-step"><div class="step-num">4</div><div class="step-text"><strong>Create the deal.</strong> Fill in the four required fields: deal amount, economic buyer name, problem statement (50+ chars), and current tracking tool.</div></div>
+          <div class="scenario-step"><div class="step-num">5</div><div class="step-text"><strong>Deal enters Business Case</strong> in the deal pipeline. Lead lifecycle is complete — you're now working a deal, not a lead.</div></div>
+        </div>
+      </div>
+
+      <div class="scenario" onclick="toggleScenario(this)">
+        <div class="scenario-header">
+          <span class="scenario-tag tag-dq">Disqualify</span>
+          <span class="scenario-title">Intro call reveals it's not a fit</span>
+          <span class="scenario-chevron">›</span>
+        </div>
+        <div class="scenario-body">
+          <div class="scenario-step"><div class="step-num">1</div><div class="step-text"><strong>Call happened but it's not a fit.</strong> Maybe they don't have the budget, aren't the right org type, or the timing is wrong.</div></div>
+          <div class="scenario-step"><div class="step-num">2</div><div class="step-text"><strong>Set intro disposition</strong> to Not Converted (or Referral Needed if there's a better contact at the org).</div></div>
+          <div class="scenario-step"><div class="step-num">3</div><div class="step-text"><strong>Move the lead to Disqualified.</strong> Select the reason — No Budget, Not ICP, No Authority, Went Dark, Timing, etc.</div></div>
+          <div class="scenario-step"><div class="step-num">4</div><div class="step-text"><strong>That's it.</strong> The lead is closed. If the same contact shows interest again later, a brand new lead record will be created — nothing is lost or overwritten.</div></div>
+        </div>
+      </div>
+
+      <div class="scenario" onclick="toggleScenario(this)">
+        <div class="scenario-header">
+          <span class="scenario-tag tag-inbound">Inbound</span>
+          <span class="scenario-title">Referral Needed — intro call identifies a better contact</span>
+          <span class="scenario-chevron">›</span>
+        </div>
+        <div class="scenario-body">
+          <div class="scenario-step"><div class="step-num">1</div><div class="step-text"><strong>You take the intro call</strong> and learn this person isn't the right contact — but they mention a colleague who is.</div></div>
+          <div class="scenario-step"><div class="step-num">2</div><div class="step-text"><strong>Set intro disposition to Referral Needed.</strong> The lead stays in Connected while you work the referral.</div></div>
+          <div class="scenario-step"><div class="step-num">3</div><div class="step-text"><strong>Get the introduction.</strong> Reach out to the right contact. When you connect with them, decide: qualify or disqualify this lead based on the outcome.</div></div>
+          <div class="scenario-step"><div class="step-num">4</div><div class="step-text"><strong>If the referral works out,</strong> move the lead to Qualified and create the deal. Associate both contacts at the deal level.</div></div>
+        </div>
+      </div>
+
+      <div class="scenario" onclick="toggleScenario(this)">
+        <div class="scenario-header">
+          <span class="scenario-tag tag-stale">Stale</span>
+          <span class="scenario-title">Connected lead with no follow-up meeting</span>
+          <span class="scenario-chevron">›</span>
+        </div>
+        <div class="scenario-body">
+          <div class="scenario-step"><div class="step-num">1</div><div class="step-text"><strong>You see a Connected lead</strong> in Pending Decision with a blank "next meeting" column. Something stalled after the initial connection.</div></div>
+          <div class="scenario-step"><div class="step-num">2</div><div class="step-text"><strong>Check last activity and last meeting date.</strong> If the last meeting was 2+ weeks ago and there's been no activity, this needs a decision.</div></div>
+          <div class="scenario-step"><div class="step-num">3</div><div class="step-text"><strong>Try to re-engage.</strong> Send a follow-up referencing the last conversation. Ask for a specific next step.</div></div>
+          <div class="scenario-step"><div class="step-num">4</div><div class="step-text"><strong>If they respond,</strong> book the next meeting and continue the qualification process.</div></div>
+          <div class="scenario-step"><div class="step-num">5</div><div class="step-text"><strong>If they don't,</strong> disqualify with "Went Dark." Don't let Connected leads age indefinitely — make the call.</div></div>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: 'faq',
+    tab: 'FAQ',
+    html: `
+      <h2>Common questions</h2>
+      <p class="section-subtitle">Quick answers to what you'll probably ask in the first week.</p>
+
+      <div class="card">
+        <div class="card-header"><div class="card-icon card-icon-blue">?</div><div class="card-title">Where do I find my leads?</div></div>
+        <div class="card-body">In your HubSpot Sales Workspace under the Leads tab. You'll see four saved views set up for you: Needs Outreach, Awaiting Response, Pending Decision, and Qualified No Deal. Start with those — they're your daily workflow.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><div class="card-icon card-icon-blue">?</div><div class="card-title">Do I need to update lead stages manually?</div></div>
+        <div class="card-body">Mostly no. New → Attempting → Connected all happen automatically based on your activity and prospect responses. The only manual moves you make are to <strong>Qualified</strong> or <strong>Disqualified</strong> — and those are intentional decisions, not admin work.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><div class="card-icon card-icon-blue">?</div><div class="card-title">Can a disqualified contact come back?</div></div>
+        <div class="card-body">Yes. If a previously disqualified contact shows interest again (new form fill, BDR re-engages them), a brand new lead record is created. The old lead stays closed with its history intact. You get a fresh start without losing any data.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><div class="card-icon card-icon-blue">?</div><div class="card-title">What if I accidentally qualify or disqualify a lead?</div></div>
+        <div class="card-body">Qualified and Disqualified are locked stages — only admins can reverse them. This is intentional to keep your data clean. If you make a mistake, reach out to your admin and they'll fix it.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><div class="card-icon card-icon-blue">?</div><div class="card-title">When should I disqualify vs. keep trying?</div></div>
+        <div class="card-body">Use the Awaiting Response view as your guide. If you've made 3+ outreach attempts over 2+ weeks with zero response, it's time to disqualify with "No Response." For Connected leads, if the last activity was 2+ weeks ago and there's no next meeting, either re-engage or disqualify. Don't let leads age — a clean disqualify is better than a stale lead sitting in your workspace forever.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><div class="card-icon card-icon-blue">?</div><div class="card-title">What's the difference between a Lead and a Contact?</div></div>
+        <div class="card-body">A Contact is a person in HubSpot. A Lead is a qualification record attached to that contact — it represents one prospecting cycle. The same contact can have multiple leads over time if they re-engage. Think of the contact as the person and the lead as the opportunity attempt.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><div class="card-icon card-icon-blue">?</div><div class="card-title">What counts as "qualification"?</div></div>
+        <div class="card-body">You can fill in the four deal creation fields with confidence: a non-zero deal amount, the economic buyer's name, a specific problem statement (50+ characters — not "they need our product"), and what they currently use to track the problem. If you can't fill those in, you probably need another conversation before qualifying.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><div class="card-icon card-icon-blue">?</div><div class="card-title">What if a BDR-sourced lead already has a meeting on my calendar?</div></div>
+        <div class="card-body">That's by design. BDR-sourced leads auto-advance toward Connected because the meeting already exists. You'll see it in Pending Decision (if the meeting has happened) or Needs Outreach (if it's upcoming) with the next meeting date visible. Your job is to prep and take the call.</div>
+      </div>
+    `
+  }
+];
+
+// Build tabs and sections
+const tabsEl = document.getElementById('tabs');
+const contentEl = document.getElementById('content');
+
+sections.forEach((s, i) => {
+  const tab = document.createElement('div');
+  tab.className = 'nav-tab' + (i === 0 ? ' active' : '');
+  tab.textContent = s.tab;
+  tab.onclick = () => showSection(i);
+  tabsEl.appendChild(tab);
+
+  const sec = document.createElement('div');
+  sec.className = 'section' + (i === 0 ? ' active' : '');
+  sec.innerHTML = s.html;
+  contentEl.appendChild(sec);
+});
+
+function showSection(idx) {
+  document.querySelectorAll('.nav-tab').forEach((t, i) => t.classList.toggle('active', i === idx));
+  document.querySelectorAll('.section').forEach((s, i) => s.classList.toggle('active', i === idx));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleScenario(el) {
+  el.classList.toggle('open');
+}
+</script>
+</body>
+</html>
