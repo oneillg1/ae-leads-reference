@@ -169,6 +169,10 @@ h3 { font-size: 15px; font-weight: 600; margin: 0 0 8px; }
 .callout-amber { background: var(--amber-bg); border: 1px solid var(--amber-border); color: var(--amber); }
 .callout-title { font-weight: 600; margin-bottom: 4px; }
 
+/* Deal stage panels */
+.deal-stage-panel { display: none; }
+.deal-stage-panel.active { display: block; }
+
 /* Responsive */
 @media (max-width: 640px) {
   .header { padding: 2rem 1.25rem 1.75rem; }
@@ -421,7 +425,7 @@ const sections = [
     tab: 'Creating Deals',
     html: `
       <h2>When you create a deal</h2>
-      <p class="section-subtitle">A deal is created the moment you qualify a lead. Here's what's required.</p>
+      <p class="section-subtitle">A deal is created the moment you qualify a lead. Here's what's required at entry.</p>
 
       <div class="card">
         <div class="card-header"><div class="card-icon card-icon-green">✓</div><div class="card-title">Qualification = Deal creation</div></div>
@@ -441,37 +445,134 @@ const sections = [
           <div class="field-note">The person with authority and budget.</div>
         </div>
         <div class="field-item">
-          <div class="field-label">Problem Statement</div>
-          <div class="field-value">50+ characters</div>
-          <div class="field-note">The specific problem they need solved. Be specific.</div>
-        </div>
-        <div class="field-item">
-          <div class="field-label">Current Tracking Tool</div>
-          <div class="field-value">What they use today</div>
-          <div class="field-note">How they currently manage the problem.</div>
+          <div class="field-label">Close Date</div>
+          <div class="field-value">Expected close</div>
+          <div class="field-note">Your best estimate of when this closes. Keep it honest.</div>
         </div>
       </div>
 
       <div class="callout callout-amber">
         <div class="callout-title">Why these fields matter</div>
-        These four fields are the evidence that qualification happened. If you can't fill them in, the lead probably isn't qualified yet. They also give your manager instant context on every deal without having to ask you.
+        These three fields are the evidence that qualification happened. If you can't fill them in, the lead probably isn't qualified yet. They also give your manager instant context on every deal without having to ask.
       </div>
 
-      <h3>Where the deal lands</h3>
+      <h3>The deal pipeline</h3>
+      <p style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">Click any stage to see entry criteria, exit criteria, and required CRM fields.</p>
       <div class="flow">
-        <span class="flow-stage flow-stage-active">Business Case</span>
+        <span class="flow-stage flow-stage-active" style="cursor:pointer" onclick="showDealStage(0)">Demonstrate Solution</span>
         <span class="flow-arrow">→</span>
-        <span class="flow-stage">Pricing & Timing</span>
+        <span class="flow-stage" style="cursor:pointer" onclick="showDealStage(1)">Build Business Case</span>
         <span class="flow-arrow">→</span>
-        <span class="flow-stage">Evaluation</span>
+        <span class="flow-stage" style="cursor:pointer" onclick="showDealStage(2)">Evaluate Proposal</span>
         <span class="flow-arrow">→</span>
-        <span class="flow-stage">Negotiation</span>
+        <span class="flow-stage" style="cursor:pointer" onclick="showDealStage(3)">Negotiate</span>
         <span class="flow-arrow">→</span>
-        <span class="flow-stage">In Contract</span>
+        <span class="flow-stage" style="cursor:pointer" onclick="showDealStage(4)">Contract</span>
       </div>
 
-      <div class="card">
-        <div class="card-body">Every new deal enters at <strong>Business Case</strong>. This is where you and the champion quantify the problem and build internal justification. The buyer isn't evaluating the product yet — they're deciding if the problem is worth solving.</div>
+      <div id="deal-stage-detail">
+        <div class="deal-stage-panel active" data-stage="0">
+          <div class="card" style="border-color: var(--accent); border-width: 1.5px;">
+            <div class="card-header"><div class="card-icon card-icon-blue">1</div><div class="card-title">Demonstrate Solution</div></div>
+            <div class="card-body" style="margin-bottom:16px;">Demo product capabilities aligned to the buyer's specific needs. Prove State Affairs can do what we say.</div>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:16px;">
+              <div style="background:var(--bg-subtle); border-radius:8px; padding:12px 14px;">
+                <div style="font-size:11px; font-weight:600; color:var(--green); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Entry</div>
+                <div style="font-size:13px; color:var(--text-secondary); line-height:1.5;">Lead converted from Lead pipeline as SQL. ICP confirmed, problem articulated, interest expressed.</div>
+              </div>
+              <div style="background:var(--bg-subtle); border-radius:8px; padding:12px 14px;">
+                <div style="font-size:11px; font-weight:600; color:var(--amber); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Exit</div>
+                <div style="font-size:13px; color:var(--text-secondary); line-height:1.5;">Buyer confirms SA solves their specific problem. Champion identified and engaged.</div>
+              </div>
+            </div>
+            <div style="padding-top:14px; border-top:1px solid var(--border);">
+              <div style="font-size:11px; font-weight:600; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:8px;">CRM Required</div>
+              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <span class="tag tag-blue" style="font-family:var(--mono); font-size:12px; padding:5px 12px;">Deal Amount</span>
+                <span class="tag tag-blue" style="font-family:var(--mono); font-size:12px; padding:5px 12px;">Economic Buyer</span>
+                <span class="tag tag-blue" style="font-family:var(--mono); font-size:12px; padding:5px 12px;">Close Date</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="deal-stage-panel" data-stage="1">
+          <div class="card" style="border-color: var(--accent); border-width: 1.5px;">
+            <div class="card-header"><div class="card-icon card-icon-blue">2</div><div class="card-title">Build Business Case</div></div>
+            <div class="card-body" style="margin-bottom:16px;">Co-author the ROI narrative and workflow fit with the buyer. Map their purchase process and decision makers.</div>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:16px;">
+              <div style="background:var(--bg-subtle); border-radius:8px; padding:12px 14px;">
+                <div style="font-size:11px; font-weight:600; color:var(--green); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Entry</div>
+                <div style="font-size:13px; color:var(--text-secondary); line-height:1.5;">Champion confirmed. Budget conversation underway. Buyer willing to invest time building the case.</div>
+              </div>
+              <div style="background:var(--bg-subtle); border-radius:8px; padding:12px 14px;">
+                <div style="font-size:11px; font-weight:600; color:var(--amber); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Exit</div>
+                <div style="font-size:13px; color:var(--text-secondary); line-height:1.5;">Value narrative co-authored with champion. Decision makers mapped. Procurement/legal path known. Timeline tied to something real.</div>
+              </div>
+            </div>
+            <div style="padding-top:14px; border-top:1px solid var(--border);">
+              <div style="font-size:11px; font-weight:600; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:8px;">CRM Required</div>
+              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <span class="tag tag-blue" style="font-family:var(--mono); font-size:12px; padding:5px 12px;">Close Date</span>
+                <span class="tag tag-blue" style="font-family:var(--mono); font-size:12px; padding:5px 12px;">Deal Amount</span>
+                <span class="tag tag-blue" style="font-family:var(--mono); font-size:12px; padding:5px 12px;">Attach Proposal/Offer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="deal-stage-panel" data-stage="2">
+          <div class="card" style="border-color: var(--accent); border-width: 1.5px;">
+            <div class="card-header"><div class="card-icon card-icon-blue">3</div><div class="card-title">Evaluate Proposal</div></div>
+            <div class="card-body" style="margin-bottom:16px;">Formal proposal and business case delivered. The buyer is reviewing and socializing internally.</div>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+              <div style="background:var(--bg-subtle); border-radius:8px; padding:12px 14px;">
+                <div style="font-size:11px; font-weight:600; color:var(--green); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Entry</div>
+                <div style="font-size:13px; color:var(--text-secondary); line-height:1.5;">All Stage 2 exit criteria met. Proposal reflects what was built together — no surprises.</div>
+              </div>
+              <div style="background:var(--bg-subtle); border-radius:8px; padding:12px 14px;">
+                <div style="font-size:11px; font-weight:600; color:var(--amber); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Exit</div>
+                <div style="font-size:13px; color:var(--text-secondary); line-height:1.5;">Decision maker has engaged on proposal. Buyer feedback received.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="deal-stage-panel" data-stage="3">
+          <div class="card" style="border-color: var(--accent); border-width: 1.5px;">
+            <div class="card-header"><div class="card-icon card-icon-blue">4</div><div class="card-title">Negotiate</div></div>
+            <div class="card-body" style="margin-bottom:16px;">Active discussion on terms, pricing, and scope.</div>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:16px;">
+              <div style="background:var(--bg-subtle); border-radius:8px; padding:12px 14px;">
+                <div style="font-size:11px; font-weight:600; color:var(--green); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Entry</div>
+                <div style="font-size:13px; color:var(--text-secondary); line-height:1.5;">Working toward verbal commitment. Buyer engaged on specifics. Clear path to a decision exists.</div>
+              </div>
+              <div style="background:var(--bg-subtle); border-radius:8px; padding:12px 14px;">
+                <div style="font-size:11px; font-weight:600; color:var(--amber); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Exit</div>
+                <div style="font-size:13px; color:var(--text-secondary); line-height:1.5;">Verbal yes received.</div>
+              </div>
+            </div>
+            <div style="padding-top:14px; border-top:1px solid var(--border);">
+              <div style="font-size:11px; font-weight:600; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:8px;">CRM Required</div>
+              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <span class="tag tag-blue" style="font-family:var(--mono); font-size:12px; padding:5px 12px;">Attach Order Form</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="deal-stage-panel" data-stage="4">
+          <div class="card" style="border-color: var(--accent); border-width: 1.5px;">
+            <div class="card-header"><div class="card-icon card-icon-blue">5</div><div class="card-title">Contract</div></div>
+            <div class="card-body" style="margin-bottom:16px;">MSA and Order Form out for signature.</div>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+              <div style="background:var(--bg-subtle); border-radius:8px; padding:12px 14px;">
+                <div style="font-size:11px; font-weight:600; color:var(--green); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Entry</div>
+                <div style="font-size:13px; color:var(--text-secondary); line-height:1.5;">Verbal yes confirmed.</div>
+              </div>
+              <div style="background:var(--bg-subtle); border-radius:8px; padding:12px 14px;">
+                <div style="font-size:11px; font-weight:600; color:var(--amber); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Exit</div>
+                <div style="font-size:13px; color:var(--text-secondary); line-height:1.5;">Deal terms agreed. Signed.</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     `
   },
@@ -537,8 +638,8 @@ const sections = [
           <div class="scenario-step"><div class="step-num">1</div><div class="step-text"><strong>Discovery call went well.</strong> You've identified a real problem, a real buyer, and real urgency. The lead is in Connected.</div></div>
           <div class="scenario-step"><div class="step-num">2</div><div class="step-text"><strong>Set intro disposition to Converted.</strong> This logs the call outcome.</div></div>
           <div class="scenario-step"><div class="step-num">3</div><div class="step-text"><strong>Move the lead to Qualified.</strong> This is your intentional "yes, this is real" decision.</div></div>
-          <div class="scenario-step"><div class="step-num">4</div><div class="step-text"><strong>Create the deal.</strong> Fill in the four required fields: deal amount, economic buyer name, problem statement (50+ chars), and current tracking tool.</div></div>
-          <div class="scenario-step"><div class="step-num">5</div><div class="step-text"><strong>Deal enters Business Case</strong> in the deal pipeline. Lead lifecycle is complete — you're now working a deal, not a lead.</div></div>
+          <div class="scenario-step"><div class="step-num">4</div><div class="step-text"><strong>Create the deal.</strong> Fill in the three required fields: deal amount, economic buyer name, and close date.</div></div>
+          <div class="scenario-step"><div class="step-num">5</div><div class="step-text"><strong>Deal enters Demonstrate Solution</strong> in the deal pipeline. Lead lifecycle is complete — you're now working a deal, not a lead.</div></div>
         </div>
       </div>
 
@@ -625,7 +726,7 @@ const sections = [
 
       <div class="card">
         <div class="card-header"><div class="card-icon card-icon-blue">?</div><div class="card-title">What counts as "qualification"?</div></div>
-        <div class="card-body">You can fill in the four deal creation fields with confidence: a non-zero deal amount, the economic buyer's name, a specific problem statement (50+ characters — not "they need our product"), and what they currently use to track the problem. If you can't fill those in, you probably need another conversation before qualifying.</div>
+        <div class="card-body">You can fill in the three deal creation fields with confidence: a non-zero deal amount, the economic buyer's name, and a realistic close date. If you can't fill those in, you probably need another conversation before qualifying.</div>
       </div>
 
       <div class="card">
@@ -661,6 +762,10 @@ function showSection(idx) {
 
 function toggleScenario(el) {
   el.classList.toggle('open');
+}
+
+function showDealStage(idx) {
+  document.querySelectorAll('.deal-stage-panel').forEach((p, i) => p.classList.toggle('active', i === idx));
 }
 </script>
 </body>
